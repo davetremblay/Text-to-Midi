@@ -114,7 +114,7 @@ else:
 
     text = f.read()
 
-noreturn = text.replace("\n","").replace(": "," ").replace(":"," ")
+noreturn = text.replace("\n"," ").replace(": "," ").replace(":"," ").replace("-"," ")
 clean_text = noreturn
 for character in noreturn:
     if character.lower() not in letters and character != " ":
