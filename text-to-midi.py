@@ -121,7 +121,6 @@ for character in noreturn:
         clean_text = clean_text.replace(character,"")
 words = clean_text.split(" ")
 words = list(filter(lambda a: a != "", words))
-print(words)
 
 #pitch=midi.PitchWheelEvent(tick=0,pitch=edos["j"])
 #tra.append(pitch)
