@@ -120,7 +120,8 @@ for character in noreturn:
     if character.lower() not in letters and character != " ":
         clean_text = clean_text.replace(character,"")
 words = clean_text.split(" ")
-words.remove("")
+words = list(filter(lambda a: a != "", words))
+print(words)
 
 #pitch=midi.PitchWheelEvent(tick=0,pitch=edos["j"])
 #tra.append(pitch)
