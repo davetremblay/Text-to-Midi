@@ -15,12 +15,7 @@ At the moment, the chord part is not working.
 """
 
 import midi
-
-filename = "textinput.txt"
-
-f = open(filename, "r")
-
-text = f.read()
+import os
 
 letters = "eoviqcfajzphbysrkdtlxmngwu"
 
@@ -110,9 +105,22 @@ edoc = {
         "w":11,
         "u":12
         }
+if not os.path.isfile("textinput.txt"):
+    text = input("Enter text: ")
+else:
+    filename = "textinput.txt"
 
-noreturn = text.replace("\n","")
-words = noreturn.split(" ")
+    f = open(filename, "r")
+
+    text = f.read()
+
+noreturn = text.replace("\n","").replace(": "," ").replace(":"," ")
+clean_text = noreturn
+for character in noreturn:
+    if character.lower() not in letters and character != " ":
+        clean_text = clean_text.replace(character,"")
+words = clean_text.split(" ")
+print(clean_text)
 
 #pitch=midi.PitchWheelEvent(tick=0,pitch=edos["j"])
 #tra.append(pitch)
@@ -671,8 +679,13 @@ edoc = {
         "u":11
         }
 
-noreturn = text.replace("\n","")
-words = noreturn.split(" ")
+noreturn = text.replace("\n","").replace(": "," ").replace(":"," ")
+clean_text = noreturn
+for character in noreturn:
+    if character.lower() not in letters and character != " ":
+        clean_text = clean_text.replace(character,"")
+words = clean_text.split(" ")
+print(clean_text)
 
 #pitch=midi.PitchWheelEvent(tick=0,pitch=edos["j"])
 #tra.append(pitch)
